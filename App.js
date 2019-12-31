@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import Header from "./components/Header";
 import TodoItem from "./components/TodoItem";
+import AddTodo from "./components/AddTodo";
 
 export default function App() {
   const [name, setName] = useState("adrian");
@@ -25,6 +26,7 @@ export default function App() {
     <View style={styles.container}>
       <Header />
       <View style={styles.content}>
+        <AddTodo />
         <View style={styles.list}>
           <FlatList
             data={todos}
