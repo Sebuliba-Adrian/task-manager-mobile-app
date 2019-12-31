@@ -4,7 +4,8 @@ import {
   Text,
   View,
   FlatList,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from "react-native";
 import Header from "./components/Header";
 import TodoItem from "./components/TodoItem";
@@ -23,9 +24,15 @@ export default function App() {
     });
   };
   const submitHandler = text => {
-    setTodos(prevTodos => {
-      return [{ text: text, key: Math.random().toString() }, ...prevTodos];
-    });
+    if (text.length > 3) {
+      setTodos(prevTodos => {
+        return [{ text: text, key: Math.random().toString() }, ...prevTodos];
+      });
+    } else {
+      Alert.alert("Oops!", "Todos must be 3 chars long", [
+        { text: "Understood", onPress: () => console.log("alert closed") }
+      ]);
+    }
   };
   return (
     <View style={styles.container}>
