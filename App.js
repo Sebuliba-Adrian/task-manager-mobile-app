@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 
 export default function App() {
   const [name, setName] = useState("adrian");
@@ -14,13 +14,13 @@ export default function App() {
   ]);
   return (
     <View style={styles.container}>
-      {people.map(item => {
-        return (
+      <ScrollView>
+        {people.map(item => (
           <View key={item.key}>
             <Text style={styles.item}>{item.name}</Text>
           </View>
-        );
-      })}
+        ))}
+      </ScrollView>
     </View>
   );
 }
